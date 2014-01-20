@@ -17,15 +17,9 @@ Route::get('/', function()
 });
 
 Route::controller('users', 'UserController');
+Route::controller('clients', 'ClientController');
+Route::controller('contacts', 'ContactController');
 
-Route::get('clients', function()
-{
-	return 'TODO: Clients';
-});
-Route::get('contacts', function()
-{
-	return 'TODO: Contacts';
-});
 Route::get('requests', function()
 {
 	return 'TODO: Requests';
