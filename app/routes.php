@@ -13,14 +13,16 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	// return View::make('hello');
+	if(!Auth::check())
+	{
+		return View::make('users.login');
+	} else {
+		return View::make('users.dashboard');
+	}
 });
 
 Route::controller('users', 'UserController');
 Route::controller('clients', 'ClientController');
 Route::controller('contacts', 'ContactController');
-
-Route::get('requests', function()
-{
-	return 'TODO: Requests';
-});
+Route::controller('requests', 'RequestController');
