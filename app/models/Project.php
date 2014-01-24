@@ -1,6 +1,5 @@
 <?php
-
-class Request extends Eloquent {
+class Project extends \Eloquent {
 
 	public static $rules = array(
 		'title'=>'required',
@@ -9,7 +8,7 @@ class Request extends Eloquent {
 		'retainer'=>'required'
 	);
 
-	public function requestor()
+	public function contact()
 	{
 		return $this->belongsTo('Contact');
 	}

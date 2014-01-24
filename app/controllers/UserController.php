@@ -1,7 +1,6 @@
 <?php
 
-class UserController extends BaseController
-{
+class UserController extends BaseController {
 	public function __construct()
 	{
 		$this->beforeFilter('csrf', array('on'=>'post'));

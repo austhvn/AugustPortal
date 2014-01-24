@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRequestsTable extends Migration {
+class CreateProjectsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,7 +11,7 @@ class CreateRequestsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('requests', function($table)
+		Schema::create('projects', function($table)
 		{
 			$table->increments('id');
 			$table->integer('contact_id');
@@ -31,7 +31,7 @@ class CreateRequestsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('requests');
+		Schema::drop('projects');
 	}
 
 }

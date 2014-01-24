@@ -1,10 +1,15 @@
 <?php
-
-class RequestController extends BaseController {
+class ProjectController extends BaseController {
+	public function __construct()
+	{
+		$this->beforeFilter('csrf', array('on'=>'post'));
+		$this->beforeFilter('auth');
+	}
 
 	public function getIndex()
 	{
-		return View::make('requests.home');
+		$projects = Project::all();
+		return View::make('projects.home')->with('projects', $projects);
 	}
 
 	public function getNew()
@@ -14,7 +19,7 @@ class RequestController extends BaseController {
 		{
 			$contacts[$c->id] = $c->first_name.' '.$c->last_name;
 		}
-		return View::make('requests.new')->with('contacts', $contacts);
+		return View::make('projects.new')->with('contacts', $contacts);
 	}
 
 	public function postNew()
@@ -24,37 +29,46 @@ class RequestController extends BaseController {
 		{
 			switch($k)
 			{
+				case '_token':
 				case 'title':
 				case 'due_date':
 				case 'contact_id':
 				case 'retainer':
-					$validate[$k] = $v;
+					$req_arr[$k] = $v;
 					unset($input[$k]);
 				break;
 			}
 		}
 		$details = serialize($input);
-		error_log(print_r($validate,1));
-		$validator = Validator::make($validate, Request::$rules);
+		$req_arr['details'] = $details;
+		error_log(print_r($req_arr,1));
+
+		$validator = Validator::make($req_arr, Project::$rules);
 		if($validator->passes())
 		{
-			$request = new Request;
+			$request = new Project;
 			$request->status = 'submitted';
 			$request->title = Input::get('title');
 			$request->due_date = Input::get('due_date');
-			$request->contact_id = Input::get('requestor');
+			$request->contact_id = Input::get('contact_id');
 			$request->retainer = Input::get('retainer');
 
-			$request->details = $details;
+			$request->details = $req_arr['details'];
 			$request->save();
 
 			$m = 'Created new request for: '.$request->title;
-			return Redirect::to('requests')->with('message', $m);
+			return Redirect::to('projects')->with('message', $m);
 		} else {
-			return Redirect::to('requests/new')
+			return Redirect::to('projects/new')
 				->with('message', 'You did not fill out all of the required information')
 				->withErrors($validator)
 				->withInput();
 		}
 	}
+
+	public function getView()
+	{
+		return 'TODO: View Requests';
+	}
+
 }

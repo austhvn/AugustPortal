@@ -36,7 +36,7 @@
 				{{ Form::textarea('extra_data2', null, array('class'=>'form-control')) }}
 			</div>
 
-			{{ Form::submit('Add Contact', array('class'=>'btn btn-large btn-primary btn-block')) }}
+			{{ Form::submit('Submit Request', array('class'=>'btn btn-large btn-primary btn-block')) }}
 
 			{{ Form::close() }}
 		</div>

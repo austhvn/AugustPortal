@@ -2,12 +2,11 @@
 
 @section('content')
 	<h1>Contacts</h1>
-	<p>{{ HTML::link('contacts/new', 'Add a Contact') }}</p>
+	<p>{{ HTML::link('contacts/new', 'Add a Contact', array('class'=>'btn btn-large btn-default')) }}</p>
 
 	<table class="table">
 		<thead>
 			<tr>
-				<th>ID</th>
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Email Address</th>
@@ -17,7 +16,6 @@
 		<tbody>
 			@foreach($contacts as $contact)
 			<tr>
-				<td>{{ $contact->id }}</td>
 				<td>{{ $contact->first_name }}</td>
 				<td>{{ $contact->last_name }}</td>
 				<td>{{ $contact->email }}</td>

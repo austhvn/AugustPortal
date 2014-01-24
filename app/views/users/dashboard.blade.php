@@ -8,7 +8,6 @@
 	</div>
 
 	<dv class="col-sm-3">
-		<p>You are logged in as {{ Auth::user()->first_name }}.</p>
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title">Random Data</h3>

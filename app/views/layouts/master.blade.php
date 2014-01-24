@@ -47,7 +47,7 @@
 							<li>{{ HTML::link('users/dashboard', 'Dashboard') }}</li>
 							<li>{{ HTML::link('clients', 'Clients') }}</li>
 							<li>{{ HTML::link('contacts', 'Contacts') }}</li>
-							<li>{{ HTML::link('requests', 'Requests') }}</li>
+							<li>{{ HTML::link('projects', 'Projects') }}</li>
 						@endif
 		             </ul>
 

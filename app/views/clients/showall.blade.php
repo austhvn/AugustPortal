@@ -2,7 +2,7 @@
 
 @section('content')
 	<h1>Clients</h1>
-	<p>{{ HTML::link('clients/new', 'Add a Client') }}</p>
+	<p>{{ HTML::link('clients/new', 'Add a Client', array('class'=>'btn btn-large btn-default')) }}</p>
 
 	<table class="table">
 		<thead>
