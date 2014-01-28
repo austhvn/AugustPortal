@@ -12,7 +12,7 @@ class UserController extends BaseController {
 		return View::make('users.new');
 	}
 
-	public function getSignin()
+	public function getLogin()
 	{
 		return View::make('users.login');
 	}
@@ -20,7 +20,7 @@ class UserController extends BaseController {
 	public function getSignout()
 	{
 		Auth::logout();
-		return Redirect::to('users/signin')->with('message', 'You have signed out!');
+		return Redirect::to('users/login')->with('message', 'You have signed out!');
 	}
 
 	public function getDashboard()
@@ -34,7 +34,7 @@ class UserController extends BaseController {
 		{
 			return Redirect::to('users/dashboard')->with('message', 'Logged in!');
 		} else {
-			return Redirect::to('users/signin')
+			return Redirect::to('users/login')
 				->with('message', 'Your email/password combination was incorrect.')
 				->withInput();
 		}
@@ -53,7 +53,7 @@ class UserController extends BaseController {
 			$user->save();
 
 			$m = 'Created new user: '.$user->first_name.' '.$user->last_name;
-			return Redirect::to('users/signin')->with('message', $m);
+			return Redirect::to('users/login')->with('message', $m);
 		} else {
 			return Redirect::to('users/register')->with('message', 'You did not complete your information to my satisfaction.')->withErrors($validator)->withInput();
 		}

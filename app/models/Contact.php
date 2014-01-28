@@ -14,9 +14,9 @@ class Contact extends Eloquent {
 		return $this->belongsTo('Client');
 	}
 
-	public function projects()
+	public function requests()
 	{
-		return $this->hasMany('Project');
+		return $this->hasMany('ProjectRequest');
 	}
 
 }

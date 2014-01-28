@@ -40,22 +40,21 @@
 				<div class="collapse navbar-collapse">
 		            <ul class="nav navbar-nav navbar-left">
 						<!-- <li class="active"><a href="/">Home</a></li> -->
-						@if(!Auth::check())
-							<li>{{ HTML::link('users/register', 'Register') }}</li>
-							<li>{{ HTML::link('users/signin', 'Sign In') }}</li>
-						@else
+						@if(Auth::check())
 							<li>{{ HTML::link('users/dashboard', 'Dashboard') }}</li>
 							<li>{{ HTML::link('clients', 'Clients') }}</li>
 							<li>{{ HTML::link('contacts', 'Contacts') }}</li>
-							<li>{{ HTML::link('projects', 'Projects') }}</li>
+							<li>{{ HTML::link('requests', 'Requests') }}</li>
 						@endif
 		             </ul>
 
-					 @if(Auth::check())
 					 <ul class="nav navbar-nav navbar-right">
+ 						@if(!Auth::check())
+						<li>{{ HTML::link('users/login', 'Sign In') }}</li>
+ 						@else
 						<li>{{ HTML::link('users/signout', 'Sign Out') }}</li>
+						@endif
 					</ul>
-					@endif
 				</div>
 			</div>
 		</div>

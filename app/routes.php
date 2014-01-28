@@ -25,4 +25,4 @@ Route::get('/', function()
 Route::controller('users', 'UserController');
 Route::controller('clients', 'ClientController');
 Route::controller('contacts', 'ContactController');
-Route::controller('projects', 'ProjectController');
+Route::controller('requests', 'ProjectRequestController');

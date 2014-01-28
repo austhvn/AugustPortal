@@ -1,7 +1,12 @@
 <?php
 
-class ClientController extends BaseController
-{
+class ClientController extends BaseController {
+	public function __construct()
+	{
+		$this->beforeFilter('csrf', array('on'=>'post'));
+		$this->beforeFilter('auth');
+	}
+
 	public function getIndex()
 	{
 		$clients = Client::all();

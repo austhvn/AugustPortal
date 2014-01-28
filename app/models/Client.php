@@ -11,4 +11,9 @@ class Client extends Eloquent {
 		return $this->hasMany('Contact');
 	}
 
+	public function requests()
+	{
+		return $this->hasMany('ProjectRequest');
+	}
+
 }

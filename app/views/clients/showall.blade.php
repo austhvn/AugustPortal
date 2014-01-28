@@ -10,6 +10,7 @@
 				<th>ID</th>
 				<th>Name</th>
 				<th>Contacts</th>
+				<th>Project Requests</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -18,6 +19,7 @@
 				<td>{{ $client->id }}</td>
 				<td>{{ $client->name }}</td>
 				<td>{{ count($client->contacts) }}</td>
+				<td>{{ count($client->requests) }}</td>
 			</tr>
 			@endforeach
 		</tbody>
